@@ -1,26 +1,19 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js App" />
+  <main>
+    <PropertyListPage />
+    <h1>Test</h1>
+  </main>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import PropertyListPage from './pages/PropertyListPage/PropertyListPage.vue'
 
 export default {
-  name: "App",
-  components: {
-    HelloWorld,
-  },
-};
+  components: { PropertyListPage },
+}
+// <style lang="scss" src="./assets/scss/index.scss" scoped />
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+@import './assets/scss/index.scss';
 </style>

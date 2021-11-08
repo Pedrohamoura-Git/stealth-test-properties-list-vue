@@ -1,0 +1,20 @@
+@import '../../assets/scss/index.scss';
+
+.top-navbar {
+  // background-color: ;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__widgets {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+}

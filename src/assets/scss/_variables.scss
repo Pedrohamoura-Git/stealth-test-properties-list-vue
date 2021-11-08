@@ -1,0 +1,27 @@
+@import './_themes.scss';
+
+
+$bg-color-body: var(--bg-color-primary);
+$bg-color-form: var(--bg-color-form);
+$bg-color-btn-send: var(--bg-color-btn-send);
+$border-radius-very-small: 3px;
+$border-radius-small: 7px;
+$bg-color-error: var(--bg-color-error);
+$transition-normal: 1s;
+$transition-kinda-quick: .5s;
+$transition-quick: .3s;
+$txt-color: var(--txt-primary-color);
+$txt-color-btn-send: var(--txt-color-btn-send);
+
+
+@mixin tablet {
+  @media only screen and (min-width: 568px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media only screen and (min-width: 1080px) {
+    @content;
+  }
+}
