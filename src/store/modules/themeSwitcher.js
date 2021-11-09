@@ -1,5 +1,5 @@
 /** @format */
-import { setInLocalStorage } from '../../../utils/localStorage/index'
+import { setInLocalStorage } from '../../utils/localStorage/index'
 
 const themeSwitcher = {
   namespaced: true,

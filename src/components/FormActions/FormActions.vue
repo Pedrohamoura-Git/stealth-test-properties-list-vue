@@ -1,5 +1,5 @@
 <template>
-  <section class="action-forms">
+  <section class="form-actions">
     <form action="#" class="filter-form">
       <label for="active-status" class="filter-form__label">Filter</label>
       <select name="active-status" id="active-status" v-model="isActive">
@@ -85,5 +85,5 @@ export default {
 </script>
 a
 <style lang="scss" scoped>
-@import './_actionForms.scss';
+@import './_formActions.scss';
 </style>
