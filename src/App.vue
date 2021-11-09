@@ -1,7 +1,6 @@
 <template>
   <div class="wrapper">
     <PropertyListPage />
-    <!-- <h1>Label</h1> -->
   </div>
 </template>
 

@@ -4,7 +4,7 @@
   background-color: $bg-color-form;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   margin: 0 auto 50px;
   padding: 20px 0 30px;
   width: 100%;
@@ -14,7 +14,7 @@
 
   @include tablet {
     gap: 20px;
-    height: 120px;
-    align-items: center;
+    padding: 30px 20px;
+    // height: 100px;
   }
 }

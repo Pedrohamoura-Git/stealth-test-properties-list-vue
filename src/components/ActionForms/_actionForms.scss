@@ -1,0 +1,18 @@
+.action-forms {
+  display: flex;
+  gap: 10px;
+
+  .filter-form,
+  .sort-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    &__label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      margin-bottom: 5px;
+      text-transform: uppercase;
+    }
+  }
+}

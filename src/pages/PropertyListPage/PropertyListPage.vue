@@ -2,7 +2,7 @@
   <main class="property-list">
     <TopNavbar>
       <template v-slot:content>
-        <FilterForm />
+        <ActionForms />
       </template>
       <template v-slot:widgets> <Search /> </template>
     </TopNavbar>
@@ -12,12 +12,12 @@
 </template>
 <script>
 import TopNavbar from '../../components/TopNavbar/TopNavbar.vue'
-import FilterForm from '../../widgets/FilterForm/FilterForm.vue'
+import ActionForms from '../../components/ActionForms/ActionForms.vue'
 import Search from '../../widgets/Search/Search.vue'
 import PropertiesList from '../../components/PropertiesList/PropertiesList.vue'
 
 export default {
-  components: { TopNavbar, FilterForm, Search, PropertiesList },
+  components: { TopNavbar, ActionForms, Search, PropertiesList },
 }
 
 // <FilterForm

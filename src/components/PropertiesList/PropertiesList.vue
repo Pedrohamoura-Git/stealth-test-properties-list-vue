@@ -37,17 +37,6 @@ export default {
       return this.$store.state.propertiesList.propertiesList
     },
   },
-  // methods: {
-  //   getImg(img) {
-  //     return required(img)
-  //   }
-  // }
-  // address: 'Trump Plz #123',
-  // city: 'New Jersey',
-  // state: 'NJ',
-  // zip: '33140',
-  // image: 'https://placeimg.com/300/200/any',
-  // active: true,
 }
 </script>
 
