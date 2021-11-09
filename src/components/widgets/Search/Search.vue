@@ -1,5 +1,5 @@
 <template>
-  <form action="#" class="search-form">
+  <form action="#" class="search-form" @keydown.enter.prevent.self>
     <label for="search" class="search-form__label"
       >Search
       <svg
@@ -19,13 +19,20 @@
         class="search-form__input"
         name="search"
         placeholder="Search Properties"
+        @keydown.enter="searchProperty($event)"
       />
     </label>
   </form>
 </template>
 
 <script>
-export default {}
+export default {
+  methods: {
+    searchProperty(e) {
+      console.log('input', e.target.data)
+    },
+  },
+}
 </script>
 
 <style lang="scss" src="./_search.scss" scoped />

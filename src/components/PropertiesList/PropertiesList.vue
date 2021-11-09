@@ -2,7 +2,7 @@
   <ul class="properties-list">
     <li
       class="property"
-      v-for="(property, index) in propertiesList"
+      v-for="(property, index) in filteredProperties"
       :key="index"
     >
       <img :src="property.image" alt="Property img" class="property__img" />
@@ -11,15 +11,15 @@
           <h3 class="property__details__location--address">
             {{ property.address }}
           </h3>
-          <span class="property__details__location--city"
-            >{{ property.city }},
+          <span class="property__details__location--city">
+            {{ property.city }},
           </span>
-          <span class="property__details__location--state"
-            >{{ property.state }},
+          <span class="property__details__location--state">
+            {{ property.state }},
           </span>
-          <span class="property__details__location--zip">{{
-            property.zip
-          }}</span>
+          <span class="property__details__location--zip">
+            {{ property.zip }}
+          </span>
         </div>
         <aside class="property__details__actions">
           <button class="btn btn--share">share</button>
@@ -31,10 +31,42 @@
 </template>
 
 <script>
+// address: 'Trump Plz #123',
+// city: 'New Jersey',
+// state: 'NJ',
+// zip: '33140',
+// image: 'https://placeimg.com/300/200/any',
+// active: true,
+
 export default {
   computed: {
     propertiesList() {
       return this.$store.state.propertiesList.propertiesList
+    },
+    isActive() {
+      return this.$store.state.propertiesList.isActive
+    },
+    sortTo() {
+      return this.$store.state.propertiesList.sortTo
+    },
+    filteredProperties() {
+      const resp = this.propertiesList.filter((property) => {
+        if (property.active == this.isActive) return property
+      })
+      if (resp.length) this.UPDATE_FILTERED_PROPERTIES(resp)
+      else this.UPDATE_PROPERTY_NOT_FOUND(true)
+      // console.log('propertiesList', this.propertiesList)
+      //       console.log('isActive', this.isActive)
+      // console.log('filteredProperties - resp ->', resp)
+      return resp
+    },
+  },
+  methods: {
+    UPDATE_FILTERED_PROPERTIES(payload) {
+      this.$store.dispatch('propertiesList/UPDATE_FILTERED_PROPERTIES', payload)
+    },
+    UPDATE_PROPERTY_NOT_FOUND(payload) {
+      this.$store.dispatch('propertiesList/UPDATE_PROPERTY_NOT_FOUND', payload)
     },
   },
 }

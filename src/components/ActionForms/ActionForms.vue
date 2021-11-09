@@ -2,27 +2,70 @@
   <section class="action-forms">
     <form action="#" class="filter-form">
       <label for="active-status" class="filter-form__label">Filter</label>
-      <select name="active-status" id="active-status">
-        <option value="active">active({{ activeProperties || 0 }})</option>
-        <option value="inactive">
-          inactive({{ inactiveProperties || 0 }})
-        </option>
+      <select name="active-status" id="active-status" v-model="isActive">
+        <option value="true">Active({{ activeProperties.length }})</option>
+        <option value="false">Inactive({{ inactiveProperties.length }})</option>
       </select>
     </form>
+
     <form action="#" class="sort-form">
       <label for="sort-items" class="sort-form__label">sort</label>
-      <select name="sort-items" id="sort-items">
-        <option value="adress">adress</option>
-        <option value="city">city</option>
-        <option value="state">state</option>
-        <option value="zip">zip</option>
+      <select name="sort-items" id="sort-items" v-model="sortTo">
+        <option value="address">Address</option>
+        <option value="city">City</option>
+        <option value="state">State</option>
+        <option value="zip">Zip</option>
       </select>
     </form>
   </section>
 </template>
 <script>
 export default {
-  data() {},
+  // address: 'Trump Plz #123',
+  // city: 'New Jersey',
+  // state: 'NJ',
+  // zip: '33140',
+  // image: 'https://placeimg.com/300/200/any',
+  // active: true,
+
+  data() {
+    return {
+      sortTo: 'address',
+      isActive: true,
+    }
+  },
+  computed: {
+    propertiesList() {
+      return this.$store.state.propertiesList.propertiesList
+    },
+    activeProperties() {
+      return this.propertiesList.filter((property) => {
+        if (property.active == true) return property
+      })
+    },
+    inactiveProperties() {
+      return this.propertiesList.filter((property) => {
+        if (property.active == false) return property
+      })
+    },
+  },
+  watch: {
+    isActive() {
+      if (this.isActive == 'false') this.UPDATE_IS_ACTIVE(false)
+      else this.UPDATE_IS_ACTIVE(true)
+    },
+    sortTo() {
+      this.UPDATE_SORT_TO()
+    },
+  },
+  methods: {
+    UPDATE_IS_ACTIVE(payload) {
+      this.$store.dispatch('propertiesList/UPDATE_IS_ACTIVE', payload)
+    },
+    UPDATE_SORT_TO() {
+      this.$store.dispatch('propertiesList/UPDATE_SORT_TO', this.sortTo)
+    },
+  },
 }
 
 // <template>
