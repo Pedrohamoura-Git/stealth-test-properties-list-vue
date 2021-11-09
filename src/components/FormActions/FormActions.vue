@@ -35,16 +35,16 @@ export default {
     }
   },
   computed: {
-    propertiesList() {
-      return this.$store.state.propertiesList.propertiesList
+    searchInFilteredProperties() {
+      return this.$store.state.propertiesList.searchInFilteredProperties
     },
     activeProperties() {
-      return this.propertiesList.filter((property) => {
+      return this.searchInFilteredProperties.filter((property) => {
         if (property.active == true) return property
       })
     },
     inactiveProperties() {
-      return this.propertiesList.filter((property) => {
+      return this.searchInFilteredProperties.filter((property) => {
         if (property.active == false) return property
       })
     },

@@ -1,32 +1,30 @@
 <template>
   <ul class="properties-list">
-    <li
-      class="property"
-      v-for="(property, index) in searchInFilteredProperties"
-      :key="index"
-    >
-      <img :src="property.image" alt="Property img" class="property__img" />
-      <div class="property__details">
-        <div class="property__details__location">
-          <h3 class="property__details__location--address">
-            {{ property.address }}
-          </h3>
-          <span class="property__details__location--city">
-            {{ property.city }},
-          </span>
-          <span class="property__details__location--state">
-            {{ property.state }},
-          </span>
-          <span class="property__details__location--zip">
-            {{ property.zip }}
-          </span>
+    <template v-for="(property, index) in searchInFilteredProperties">
+      <li class="property" v-if="property.active == isActive" :key="index">
+        <img :src="property.image" alt="Property img" class="property__img" />
+        <div class="property__details">
+          <div class="property__details__location">
+            <h3 class="property__details__location--address">
+              {{ property.address }}
+            </h3>
+            <span class="property__details__location--city">
+              {{ property.city }},
+            </span>
+            <span class="property__details__location--state">
+              {{ property.state }},
+            </span>
+            <span class="property__details__location--zip">
+              {{ property.zip }}
+            </span>
+          </div>
+          <aside class="property__details__actions">
+            <button class="btn btn--share">share</button>
+            <button class="btn btn--archive">archive</button>
+          </aside>
         </div>
-        <aside class="property__details__actions">
-          <button class="btn btn--share">share</button>
-          <button class="btn btn--archive">archive</button>
-        </aside>
-      </div>
-    </li>
+      </li>
+    </template>
   </ul>
 </template>
 
@@ -64,26 +62,56 @@ export default {
       return resp
     },
     searchInFilteredProperties() {
-      if (this.searchFor != '') {
-        const resp = this.filteredProperties.filter((property) => {
-          // console.log(
-          //   'searchInFilteredProperties - property.city ->',
-          //   property.city
-          // )
-          // console.log(
-          //   'searchInFilteredProperties - searchFor ->',
-          //   this.searchFor
-          // )
-          if (property.city.toLowerCase().match(this.searchFor.toLowerCase()))
-            return property
-        })
-        return resp
-      } else return this.filteredProperties
+      // console.log('propertiesList', this.propertiesList)
+      // if (this.searchFor != '') {
+      let resp = []
+      resp = this.searchForAddress()
+      // console.log('searchForAddress - resp', resp)
+      if (resp.length == 0) {
+        resp = this.searchForCity()
+        // console.log('searchForCity - resp', resp)
+      }
+      this.UPDATE_SEARCH_IN_FILTERED_PROPERTIES(resp)
+      if (!resp.length) this.UPDATE_PROPERTY_NOT_FOUND(true)
+      return resp
+      // } else return this.filteredProperties
     },
+    // console.log(
+    //   'searchInFilteredProperties - property.city ->',
+    //   property.city
+    // )
+    // console.log(
+    //   'searchInFilteredProperties - searchFor ->',
+    //   this.searchFor
+    // )
   },
   methods: {
+    searchForAddress() {
+      return this.propertiesList.filter((property) => {
+        if (
+          property.address.toLowerCase().match(this.searchFor.toLowerCase())
+        ) {
+          // console.log('property.address  ->', property.address)
+          return property
+        }
+      })
+    },
+    searchForCity() {
+      return this.propertiesList.filter((property) => {
+        if (property.city.toLowerCase().match(this.searchFor.toLowerCase())) {
+          // console.log('property.city  ->', property.city)
+          return property
+        }
+      })
+    },
     UPDATE_FILTERED_PROPERTIES(payload) {
       this.$store.dispatch('propertiesList/UPDATE_FILTERED_PROPERTIES', payload)
+    },
+    UPDATE_SEARCH_IN_FILTERED_PROPERTIES(payload) {
+      this.$store.dispatch(
+        'propertiesList/UPDATE_SEARCH_IN_FILTERED_PROPERTIES',
+        payload
+      )
     },
     UPDATE_PROPERTY_NOT_FOUND(payload) {
       this.$store.dispatch('propertiesList/UPDATE_PROPERTY_NOT_FOUND', payload)

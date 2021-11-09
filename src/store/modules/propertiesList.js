@@ -26,11 +26,20 @@ const propertiesList = {
         image: 'https://placeimg.com/300/200/any',
         active: false,
       },
+      {
+        address: 'Jinx Road',
+        city: 'Small City',
+        state: 'SC',
+        zip: '32333',
+        image: 'https://placeimg.com/300/200/any',
+        active: false,
+      },
     ],
     isActive: true,
     sortTo: 'address',
     propertyNotFound: false,
     filteredProperties: [],
+    searchInFilteredProperties: [],
   },
   mutations: {
     SET_IS_ACTIVE(state, payload) {
@@ -51,6 +60,13 @@ const propertiesList = {
       //   state.filteredProperties
       // )
     },
+    UPDATE_SEARCH_IN_FILTERED_PROPERTIES(state, payload) {
+      state.searchInFilteredProperties = payload
+      console.log(
+        'store - UPDATE_SEARCH_IN_FILTERED_PROPERTIES -> ',
+        state.searchInFilteredProperties
+      )
+    },
   },
   actions: {
     UPDATE_IS_ACTIVE({ commit }, payload) {
@@ -64,6 +80,9 @@ const propertiesList = {
     },
     UPDATE_FILTERED_PROPERTIES({ commit }, payload) {
       commit('SET_FILTERED_PROPERTIES', payload)
+    },
+    UPDATE_SEARCH_IN_FILTERED_PROPERTIES({ commit }, payload) {
+      commit('UPDATE_SEARCH_IN_FILTERED_PROPERTIES', payload)
     },
   },
 }
