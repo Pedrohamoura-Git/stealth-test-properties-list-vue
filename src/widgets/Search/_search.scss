@@ -1,0 +1,32 @@
+@import '../../assets/scss/index.scss';
+
+.search-form {
+  position: relative;
+  &__label {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  &__input {
+    border: 1px solid;
+    border-radius: $border-radius-very-small;
+    font-size: 0.7rem;
+    margin-top: 5px;
+    padding: 3px 5px;
+  }
+
+  &__icon {
+    transform: scale(0.5);
+    position: absolute;
+    right: 0;
+    bottom: 0px;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
