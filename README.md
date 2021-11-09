@@ -80,6 +80,7 @@ Your users should be able to:
 ## Useful resources
 
 - <a href="https://stackoverflow.com/questions/263965/how-can-i-convert-a-string-to-boolean-in-javascript" alt="String to boolean" target="_blank">String to boolean</a>
+- <a href="https://michaelnthiessen.com/force-re-render/" alt="The correct way to force Vue to re-render a component" target="_blank">The correct way to force Vue to re-render a component</a>
 - <a href="https://dev.to/tqbit/create-your-own-dark-mode-toggle-component-with-vue-js-1284" alt="Vue - Dark Mode" target="_blank">Vue - Dark Mode</a>
 - <a href="https://animista.net/play/basic" alt="Animista" target="_blank">Animista</a>
 

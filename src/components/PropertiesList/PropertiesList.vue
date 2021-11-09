@@ -1,7 +1,10 @@
 <template>
   <ul class="properties-list">
-    <template v-for="(property, index) in searchInFilteredProperties">
-      <li class="property" v-if="property.active == isActive" :key="index">
+    <template
+      v-for="(property, index) in searchInFilteredProperties"
+      :key="componentKey + index"
+    >
+      <li class="property" v-if="property.active == isActive">
         <img :src="property.image" alt="Property img" class="property__img" />
         <div class="property__details">
           <div class="property__details__location">
@@ -29,23 +32,24 @@
 </template>
 
 <script>
-// address: 'Trump Plz #123',
-// city: 'New Jersey',
-// state: 'NJ',
-// zip: '33140',
-// image: 'https://placeimg.com/300/200/any',
-// active: true,
-
 export default {
+  data() {
+    return {
+      componentKey: 0,
+    }
+  },
+  beforeMount() {
+    this.sortSearchInFilteredProperties(this.sortTo)
+  },
   computed: {
     propertiesList() {
       return this.$store.state.propertiesList.propertiesList
     },
     isActive() {
-      return this.$store.state.propertiesList.isActive
+      return this.$store.state.formActions.isActive
     },
     sortTo() {
-      return this.$store.state.propertiesList.sortTo
+      return this.$store.state.formActions.sortTo
     },
     searchFor() {
       return this.$store.state.formActions.searchFor
@@ -56,42 +60,53 @@ export default {
       })
       if (resp.length) this.UPDATE_FILTERED_PROPERTIES(resp)
       else this.UPDATE_PROPERTY_NOT_FOUND(true)
-      // console.log('propertiesList', this.propertiesList)
-      //       console.log('isActive', this.isActive)
-      // console.log('filteredProperties - resp ->', resp)
       return resp
     },
     searchInFilteredProperties() {
-      // console.log('propertiesList', this.propertiesList)
-      // if (this.searchFor != '') {
       let resp = []
       resp = this.searchForAddress()
-      // console.log('searchForAddress - resp', resp)
       if (resp.length == 0) {
         resp = this.searchForCity()
-        // console.log('searchForCity - resp', resp)
       }
       this.UPDATE_SEARCH_IN_FILTERED_PROPERTIES(resp)
       if (!resp.length) this.UPDATE_PROPERTY_NOT_FOUND(true)
       return resp
-      // } else return this.filteredProperties
     },
-    // console.log(
-    //   'searchInFilteredProperties - property.city ->',
-    //   property.city
-    // )
-    // console.log(
-    //   'searchInFilteredProperties - searchFor ->',
-    //   this.searchFor
-    // )
+  },
+  watch: {
+    sortTo: {
+      handler() {
+        this.sortSearchInFilteredProperties(this.sortTo)
+        this.forceRerender()
+        console.log('sorted array', this.searchInFilteredProperties)
+      },
+      deep: true,
+    },
   },
   methods: {
+    forceRerender() {
+      this.componentKey += 1
+      console.log('forceRerender - key', this.componentKey)
+    },
+    sortSearchInFilteredProperties(sortTo) {
+      console.log('sortSearchInFilteredProperties sortTo', sortTo)
+      const resp = this.searchInFilteredProperties.sort((a, b) => {
+        if (a[`${sortTo}`] > b[`${sortTo}`]) {
+          return 1
+        }
+        if (a[`${sortTo}`] < b[`${sortTo}`]) {
+          return -1
+        }
+        // a must be equal to b
+        return 0
+      })
+      this.UPDATE_SEARCH_IN_FILTERED_PROPERTIES(resp)
+    },
     searchForAddress() {
       return this.propertiesList.filter((property) => {
         if (
           property.address.toLowerCase().match(this.searchFor.toLowerCase())
         ) {
-          // console.log('property.address  ->', property.address)
           return property
         }
       })
@@ -99,7 +114,6 @@ export default {
     searchForCity() {
       return this.propertiesList.filter((property) => {
         if (property.city.toLowerCase().match(this.searchFor.toLowerCase())) {
-          // console.log('property.city  ->', property.city)
           return property
         }
       })

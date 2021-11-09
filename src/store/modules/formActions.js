@@ -8,15 +8,12 @@ const formActions = {
   mutations: {
     SET_IS_ACTIVE(state, payload) {
       state.isActive = payload
-      // console.log('store - SET_IS_ACTIVE -> ', state.isActive)
     },
     SET_SORT_TO(state, payload) {
       state.sortTo = payload
-      // console.log('store - SET_SORT_TO -> ', state.sortTo)
     },
     SET_SEARCH_FOR(state, payload) {
       state.searchFor = payload
-      // console.log('store - SET_SEARCH_FOR -> ', state.searchFor)
     },
   },
   actions: {

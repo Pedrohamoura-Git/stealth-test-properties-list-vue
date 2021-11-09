@@ -21,13 +21,6 @@
 </template>
 <script>
 export default {
-  // address: 'Trump Plz #123',
-  // city: 'New Jersey',
-  // state: 'NJ',
-  // zip: '33140',
-  // image: 'https://placeimg.com/300/200/any',
-  // active: true,
-
   data() {
     return {
       sortTo: 'address',
@@ -60,10 +53,10 @@ export default {
   },
   methods: {
     UPDATE_IS_ACTIVE(payload) {
-      this.$store.dispatch('propertiesList/UPDATE_IS_ACTIVE', payload)
+      this.$store.dispatch('formActions/UPDATE_IS_ACTIVE', payload)
     },
     UPDATE_SORT_TO() {
-      this.$store.dispatch('propertiesList/UPDATE_SORT_TO', this.sortTo)
+      this.$store.dispatch('formActions/UPDATE_SORT_TO', this.sortTo)
     },
   },
 }
