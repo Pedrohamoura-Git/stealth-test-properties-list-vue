@@ -1,24 +1,31 @@
-
 /* Define styles for the default root window element */
 :root {
   --accent-color: #cacaca;
-  --bg-color-primary: #1e1e1e;
-  // --bg-color-primary: #fafafa;
+
+  --bg-color-primary: #fafafa;
   --bg-color-secondary: #fafafa;
-  --bg-color-btn-send: transparent;
   --bg-color-error: rgb(234, 15, 15);
-  --bg-color-form: #00B8E2;
-  --txt-color-btn-send: #fff;
-  --txt-primary-color: #ddd;
-  // --txt-primary-color: #222;
+  --bg-color-form: #ddd;
+
+  --bg-color-btn-archive: var(--bg-color-primary);
+  --bg-color-btn-share: rgb(10, 154, 10);
+  --bg-color-btn-share-hover: rgb(4, 216, 167);
+
+  --border-color-smooth: #d3d3d3;
+
+  --txt-color-btn-archive: #222;
+  --txt-color-btn-share: #fff;
+  --txt-primary-color: #222;
 }
 
 /* Define styles for the root window with dark - mode preference */
 :root.dark-theme {
   --accent-color: #3f3f3f;
+
   --bg-color-primary: #1e1e1e;
   --bg-color-secondary: #2d2d30;
-  --bg-color-error: #AB0F4C;
+  --bg-color-error: #ab0f4c;
   --bg-color-form: #338193;
+
   --txt-primary-color: #ddd;
 }

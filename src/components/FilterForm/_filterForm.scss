@@ -1,0 +1,10 @@
+.filter-form {
+  display: flex;
+  justify-content: space-between;
+
+  &__label {
+    color: red;
+    display: block;
+    margin: 20px auto;
+  }
+}

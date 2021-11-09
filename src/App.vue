@@ -1,19 +1,19 @@
 <template>
-  <main>
+  <div class="wrapper">
     <PropertyListPage />
-    <h1>Test</h1>
-  </main>
+    <!-- <h1>Label</h1> -->
+  </div>
 </template>
 
 <script>
-import PropertyListPage from './pages/PropertyListPage/PropertyListPage.vue'
+import PropertyListPage from './pages/PropertyListPage/PropertyListPage'
 
 export default {
-  components: { PropertyListPage },
+  name: 'App',
+  components: {
+    PropertyListPage,
+  },
 }
-// <style lang="scss" src="./assets/scss/index.scss" scoped />
 </script>
 
-<style lang="scss">
-@import './assets/scss/index.scss';
-</style>
+<style lang="scss" src="./assets/scss/index.scss" />
