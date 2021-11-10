@@ -1,39 +1,56 @@
 <template>
-  <div class="property-not-found" v-if="propertyNotFound">
-    <p class="property-not-found__msg">
-      Property no found. Check the name and try again.
-    </p>
-  </div>
-  <ul class="properties-list" v-else>
-    <template
-      v-for="(property, index) in searchInPropertiesList"
-      :key="componentKey + index"
-    >
-      <li class="property" v-if="property.active == isActive">
-        <img :src="property.image" alt="Property img" class="property__img" />
-        <div class="property__details">
-          <div class="property__details__location">
-            <h3 class="property__details__location--address">
-              {{ property.address }}
-            </h3>
-            <span class="property__details__location--city">
-              {{ property.city }},
-            </span>
-            <span class="property__details__location--state">
-              {{ property.state }},
-            </span>
-            <span class="property__details__location--zip">
-              {{ property.zip }}
-            </span>
+  <transition
+    v-if="propertyNotFound"
+    enter-active-class="slide-in-right"
+    leave-active-class="slide-out-right"
+    mode="out-in"
+    appear
+  >
+    <div class="property-not-found">
+      <p class="property-not-found__msg">
+        Property no found. Check the name and try again.
+      </p>
+    </div>
+  </transition>
+
+  <transition
+    v-else
+    enter-active-class="slide-in-left"
+    leave-active-class="slide-out-left"
+    mode="out-in"
+    appear
+  >
+    <ul class="properties-list">
+      <template
+        v-for="(property, index) in searchInPropertiesList"
+        :key="componentKey + index"
+      >
+        <li class="property" v-if="property.active == isActive">
+          <img :src="property.image" alt="Property img" class="property__img" />
+          <div class="property__details">
+            <div class="property__details__location">
+              <h3 class="property__details__location--address">
+                {{ property.address }}
+              </h3>
+              <span class="property__details__location--city">
+                {{ property.city }},
+              </span>
+              <span class="property__details__location--state">
+                {{ property.state }},
+              </span>
+              <span class="property__details__location--zip">
+                {{ property.zip }}
+              </span>
+            </div>
+            <aside class="property__details__actions">
+              <button class="btn btn--share">share</button>
+              <button class="btn btn--archive">archive</button>
+            </aside>
           </div>
-          <aside class="property__details__actions">
-            <button class="btn btn--share">share</button>
-            <button class="btn btn--archive">archive</button>
-          </aside>
-        </div>
-      </li>
-    </template>
-  </ul>
+        </li>
+      </template>
+    </ul>
+  </transition>
 </template>
 
 <script>
