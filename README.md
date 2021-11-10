@@ -1,5 +1,3 @@
-# stealth-test-properties-list-vue
-
 # Front-end test Project - Stealth-test
 
 - Live Site URL: - <a href="https://stealth-test-pedro.netlify.app/" target="_blank" alt="">Stealth Test</a>
