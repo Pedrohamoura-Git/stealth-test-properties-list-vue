@@ -4,8 +4,6 @@
 
 - Live Site URL: - <a href="https://stealth-test-pedro.netlify.app/" target="_blank" alt="">Stealth Test</a>
 
-- Live Site URL: - <a href="#" target="_blank" alt=""></a>
-
 ## How to run
 
 - In the project folder, you can run:
