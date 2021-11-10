@@ -86,6 +86,7 @@ export default {
     searchInPropertiesList: {
       handler() {
         this.handlePropertyNotFound()
+        this.UPDATE_SEARCH_IN_PROPERTIES_LIST(this.searchInPropertiesList)
       },
       deep: true,
     },
