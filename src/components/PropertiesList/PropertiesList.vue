@@ -47,6 +47,7 @@ export default {
   },
   beforeMount() {
     sortArray(this.searchInPropertiesList, this.sortTo)
+    this.UPDATE_SEARCH_IN_PROPERTIES_LIST(this.searchInPropertiesList)
   },
   computed: {
     propertiesList() {
@@ -84,7 +85,6 @@ export default {
     },
     searchInPropertiesList: {
       handler() {
-        this.UPDATE_SEARCH_IN_PROPERTIES_LIST(this.searchInPropertiesList)
         this.handlePropertyNotFound()
       },
       deep: true,
