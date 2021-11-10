@@ -3,8 +3,10 @@
     <form action="#" class="filter-form">
       <label for="active-status" class="filter-form__label">Filter</label>
       <select name="active-status" id="active-status" v-model="isActive">
-        <option value="true">Active({{ activeProperties.length }})</option>
-        <option value="false">Inactive({{ inactiveProperties.length }})</option>
+        <option value="true">Active ({{ activeProperties.length }})</option>
+        <option value="false">
+          Inactive ({{ inactiveProperties.length }})
+        </option>
       </select>
     </form>
 

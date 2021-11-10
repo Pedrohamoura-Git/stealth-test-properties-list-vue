@@ -30,7 +30,6 @@
   width: max-content;
 
   @include tablet {
-    // align-items: center;
     flex-direction: row;
     justify-content: flex-start;
     margin-bottom: 21px;
@@ -72,7 +71,8 @@
       }
 
       &--address {
-        margin-bottom: 10px;
+        font-size: 1.8rem;
+        margin-bottom: 0px;
       }
     }
 
@@ -81,7 +81,7 @@
       align-items: left;
       justify-content: flex-start;
       gap: 10px;
-      margin-bottom: 21px;
+      margin: 20px 0;
 
       @include desktop {
         width: max-content;
