@@ -1,10 +1,6 @@
-# stealth-test-properties-list-vue
-
 # Front-end test Project - Stealth-test
 
-<!-- - Live Site URL: - <a href="https://" target="_blank" alt="">Poke Shop</a> -->
-
-- Live Site URL: - <a href="#" target="_blank" alt=""></a>
+- Live Site URL: - <a href="https://stealth-test-pedro.netlify.app/" target="_blank" alt="">Stealth Test</a>
 
 ## How to run
 
