@@ -43,10 +43,10 @@ _OBS: THE IMAGES MAY NOT BE IN THE SAME SCALE._
 # Static Preview
 
 <span>
-  <img src="/public/screenshots/members-participations-desktop.png" width="640px" style="display: inline">
+  <img src="/public/screenshots/properties-list-desktop.png" width="640px" style="display: inline">
 </span>
 <span>
-  <img src="/public/screenshots/members-participations-mobile.png" height="640px" style="display: inline">
+  <img src="/public/screenshots/properties-list-mobile.png" height="640px" style="display: inline">
 </span>
 
 ## My process
