@@ -1,7 +1,7 @@
 <template>
   <ul class="properties-list">
     <template
-      v-for="(property, index) in searchInFilteredProperties"
+      v-for="(property, index) in searchInPropertiesList"
       :key="componentKey + index"
     >
       <li class="property" v-if="property.active == isActive">
@@ -54,21 +54,13 @@ export default {
     searchFor() {
       return this.$store.state.formActions.searchFor
     },
-    filteredProperties() {
-      const resp = this.propertiesList.filter((property) => {
-        if (property.active == this.isActive) return property
-      })
-      if (resp.length) this.UPDATE_FILTERED_PROPERTIES(resp)
-      else this.UPDATE_PROPERTY_NOT_FOUND(true)
-      return resp
-    },
-    searchInFilteredProperties() {
+    searchInPropertiesList() {
       let resp = []
       resp = this.searchForAddress()
       if (resp.length == 0) {
         resp = this.searchForCity()
       }
-      this.UPDATE_SEARCH_IN_FILTERED_PROPERTIES(resp)
+      this.UPDATE_SEARCH_IN_PROPERTIES_LIST(resp)
       if (!resp.length) this.UPDATE_PROPERTY_NOT_FOUND(true)
       return resp
     },
@@ -78,7 +70,6 @@ export default {
       handler() {
         this.sortSearchInFilteredProperties(this.sortTo)
         this.forceRerender()
-        console.log('sorted array', this.searchInFilteredProperties)
       },
       deep: true,
     },
@@ -86,11 +77,9 @@ export default {
   methods: {
     forceRerender() {
       this.componentKey += 1
-      console.log('forceRerender - key', this.componentKey)
     },
     sortSearchInFilteredProperties(sortTo) {
-      console.log('sortSearchInFilteredProperties sortTo', sortTo)
-      const resp = this.searchInFilteredProperties.sort((a, b) => {
+      const resp = this.searchInPropertiesList.sort((a, b) => {
         if (a[`${sortTo}`] > b[`${sortTo}`]) {
           return 1
         }
@@ -100,7 +89,7 @@ export default {
         // a must be equal to b
         return 0
       })
-      this.UPDATE_SEARCH_IN_FILTERED_PROPERTIES(resp)
+      this.UPDATE_SEARCH_IN_PROPERTIES_LIST(resp)
     },
     searchForAddress() {
       return this.propertiesList.filter((property) => {
@@ -118,12 +107,9 @@ export default {
         }
       })
     },
-    UPDATE_FILTERED_PROPERTIES(payload) {
-      this.$store.dispatch('propertiesList/UPDATE_FILTERED_PROPERTIES', payload)
-    },
-    UPDATE_SEARCH_IN_FILTERED_PROPERTIES(payload) {
+    UPDATE_SEARCH_IN_PROPERTIES_LIST(payload) {
       this.$store.dispatch(
-        'propertiesList/UPDATE_SEARCH_IN_FILTERED_PROPERTIES',
+        'propertiesList/UPDATE_SEARCH_IN_PROPERTIES_LIST',
         payload
       )
     },

@@ -71,7 +71,7 @@ const propertiesList = {
     ],
     propertyNotFound: false,
     filteredProperties: [],
-    searchInFilteredProperties: [],
+    searchInPropertiesList: [],
   },
   mutations: {
     SET_IS_ACTIVE(state, payload) {
@@ -83,11 +83,8 @@ const propertiesList = {
     SET_PROPERTY_NOT_FOUND(state, payload) {
       state.propertyNotFound = payload
     },
-    SET_FILTERED_PROPERTIES(state, payload) {
-      state.filteredProperties = payload
-    },
-    UPDATE_SEARCH_IN_FILTERED_PROPERTIES(state, payload) {
-      state.searchInFilteredProperties = payload
+    UPDATE_SEARCH_IN_PROPERTIES_LIST(state, payload) {
+      state.searchInPropertiesList = payload
     },
   },
   actions: {
@@ -100,11 +97,8 @@ const propertiesList = {
     UPDATE_PROPERTY_NOT_FOUND({ commit }, payload) {
       commit('SET_PROPERTY_NOT_FOUND', payload)
     },
-    UPDATE_FILTERED_PROPERTIES({ commit }, payload) {
-      commit('SET_FILTERED_PROPERTIES', payload)
-    },
-    UPDATE_SEARCH_IN_FILTERED_PROPERTIES({ commit }, payload) {
-      commit('UPDATE_SEARCH_IN_FILTERED_PROPERTIES', payload)
+    UPDATE_SEARCH_IN_PROPERTIES_LIST({ commit }, payload) {
+      commit('UPDATE_SEARCH_IN_PROPERTIES_LIST', payload)
     },
   },
 }

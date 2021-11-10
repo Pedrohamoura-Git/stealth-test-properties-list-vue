@@ -28,16 +28,16 @@ export default {
     }
   },
   computed: {
-    searchInFilteredProperties() {
-      return this.$store.state.propertiesList.searchInFilteredProperties
+    searchInPropertiesList() {
+      return this.$store.state.propertiesList.searchInPropertiesList
     },
     activeProperties() {
-      return this.searchInFilteredProperties.filter((property) => {
+      return this.searchInPropertiesList.filter((property) => {
         if (property.active == true) return property
       })
     },
     inactiveProperties() {
-      return this.searchInFilteredProperties.filter((property) => {
+      return this.searchInPropertiesList.filter((property) => {
         if (property.active == false) return property
       })
     },
