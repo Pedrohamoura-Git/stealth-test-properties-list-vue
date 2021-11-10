@@ -39,7 +39,7 @@ export default {
     }
   },
   beforeMount() {
-    this.sortSearchInFilteredProperties(this.sortTo)
+    this.sortArray(this.searchInPropertiesList, this.sortTo)
   },
   computed: {
     propertiesList() {
@@ -68,7 +68,11 @@ export default {
   watch: {
     sortTo: {
       handler() {
-        this.sortSearchInFilteredProperties(this.sortTo)
+        const sortedArray = this.sortArray(
+          this.searchInPropertiesList,
+          this.sortTo
+        )
+        this.UPDATE_SEARCH_IN_PROPERTIES_LIST(sortedArray)
         this.forceRerender()
       },
       deep: true,
@@ -78,8 +82,8 @@ export default {
     forceRerender() {
       this.componentKey += 1
     },
-    sortSearchInFilteredProperties(sortTo) {
-      const resp = this.searchInPropertiesList.sort((a, b) => {
+    sortArray(array, sortTo) {
+      const resp = array.sort((a, b) => {
         if (a[`${sortTo}`] > b[`${sortTo}`]) {
           return 1
         }
@@ -89,7 +93,7 @@ export default {
         // a must be equal to b
         return 0
       })
-      this.UPDATE_SEARCH_IN_PROPERTIES_LIST(resp)
+      return resp
     },
     searchForAddress() {
       return this.propertiesList.filter((property) => {
