@@ -21,18 +21,5 @@ import PropertiesList from '../../components/PropertiesList/PropertiesList.vue'
 export default {
   components: { TopNavbar, FormActions, Search, PropertiesList },
 }
-
-// <FilterForm
-//   :action="'#'"
-//   :labelFor="'active-status'"
-//   :labelText="'Filter'"
-// >
-//   <template v-slot:form>
-//     <select name="active-status" id="active-status">
-//       <option value="active">active</option>
-//       <option value="inactive">inactive</option>
-//     </select>
-//   </template>
-// </FilterForm>
 </script>
 <style lang="scss" src="./_propertiesListPage.scss" scoped />

@@ -60,23 +60,6 @@ export default {
     },
   },
 }
-
-// <template>
-//   <form :action="action" class="filter-form">
-//     <label :for="labelFor">{{ labelText }}</label>
-//     <slot name="form"></slot>
-//   </form>
-// </template>
-// <script>
-// export default {
-//   props: {
-//     action: { type: String, required: true },
-//     labelFor: { type: String, required: true },
-//     labelText: { type: String, required: true },
-//   },
-// d}a
 </script>
 a
-<style lang="scss" scoped>
-@import './_formActions.scss';
-</style>
+<style lang="scss" src="./_formActions.scss" scoped />

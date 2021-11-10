@@ -113,4 +113,4 @@ export default {
 }
 </script>
 
-<style lang="scss" src="./_propertiesList.scss" scoped></style>
+<style lang="scss" src="./_propertiesList.scss" scoped />
