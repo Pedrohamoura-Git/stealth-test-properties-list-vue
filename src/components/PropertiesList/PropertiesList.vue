@@ -32,6 +32,8 @@
 </template>
 
 <script>
+import { sortArray, searchInArray } from '../../utils/arrays/index'
+
 export default {
   data() {
     return {
@@ -39,7 +41,7 @@ export default {
     }
   },
   beforeMount() {
-    this.sortArray(this.searchInPropertiesList, this.sortTo)
+    sortArray(this.searchInPropertiesList, this.sortTo)
   },
   computed: {
     propertiesList() {
@@ -56,9 +58,9 @@ export default {
     },
     searchInPropertiesList() {
       let resp = []
-      resp = this.searchInArray(this.propertiesList, 'address', this.searchFor)
+      resp = searchInArray(this.propertiesList, 'address', this.searchFor)
       if (resp.length == 0) {
-        resp = this.searchInArray(this.propertiesList, 'city', this.searchFor)
+        resp = searchInArray(this.propertiesList, 'city', this.searchFor)
       }
       this.UPDATE_SEARCH_IN_PROPERTIES_LIST(resp)
       if (!resp.length) this.UPDATE_PROPERTY_NOT_FOUND(true)
@@ -68,10 +70,7 @@ export default {
   watch: {
     sortTo: {
       handler() {
-        const sortedArray = this.sortArray(
-          this.searchInPropertiesList,
-          this.sortTo
-        )
+        const sortedArray = sortArray(this.searchInPropertiesList, this.sortTo)
         this.UPDATE_SEARCH_IN_PROPERTIES_LIST(sortedArray)
         this.forceRerender()
       },
@@ -81,26 +80,6 @@ export default {
   methods: {
     forceRerender() {
       this.componentKey += 1
-    },
-    sortArray(array, sortTo) {
-      const resp = array.sort((a, b) => {
-        if (a[`${sortTo}`] > b[`${sortTo}`]) {
-          return 1
-        }
-        if (a[`${sortTo}`] < b[`${sortTo}`]) {
-          return -1
-        }
-        // a must be equal to b
-        return 0
-      })
-      return resp
-    },
-    searchInArray(array, key, searchFor) {
-      return array.filter((property) => {
-        if (property[`${key}`].toLowerCase().match(searchFor.toLowerCase())) {
-          return property
-        }
-      })
     },
     UPDATE_SEARCH_IN_PROPERTIES_LIST(payload) {
       this.$store.dispatch(
