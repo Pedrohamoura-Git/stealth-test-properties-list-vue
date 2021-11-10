@@ -1,5 +1,10 @@
 <template>
-  <ul class="properties-list">
+  <div class="property-not-found" v-if="propertyNotFound">
+    <p class="property-not-found__msg">
+      Property no found. Check the name and try again.
+    </p>
+  </div>
+  <ul class="properties-list" v-else>
     <template
       v-for="(property, index) in searchInPropertiesList"
       :key="componentKey + index"
@@ -56,14 +61,15 @@ export default {
     searchFor() {
       return this.$store.state.formActions.searchFor
     },
+    propertyNotFound() {
+      return this.$store.state.propertiesList.propertyNotFound
+    },
     searchInPropertiesList() {
       let resp = []
       resp = searchInArray(this.propertiesList, 'address', this.searchFor)
-      if (resp.length == 0) {
+      if (!resp.length) {
         resp = searchInArray(this.propertiesList, 'city', this.searchFor)
       }
-      this.UPDATE_SEARCH_IN_PROPERTIES_LIST(resp)
-      if (!resp.length) this.UPDATE_PROPERTY_NOT_FOUND(true)
       return resp
     },
   },
@@ -76,10 +82,22 @@ export default {
       },
       deep: true,
     },
+    searchInPropertiesList: {
+      handler() {
+        this.UPDATE_SEARCH_IN_PROPERTIES_LIST(this.searchInPropertiesList)
+        this.handlePropertyNotFound()
+      },
+      deep: true,
+    },
   },
   methods: {
     forceRerender() {
       this.componentKey += 1
+    },
+    handlePropertyNotFound() {
+      if (!this.searchInPropertiesList.length)
+        this.UPDATE_PROPERTY_NOT_FOUND(true)
+      else this.UPDATE_PROPERTY_NOT_FOUND(false)
     },
     UPDATE_SEARCH_IN_PROPERTIES_LIST(payload) {
       this.$store.dispatch(

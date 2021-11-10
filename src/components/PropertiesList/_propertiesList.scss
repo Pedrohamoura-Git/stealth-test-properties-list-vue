@@ -1,5 +1,15 @@
 @import '../../assets/scss/index.scss';
 
+.property-not-found {
+  &__msg {
+    background-color: $bg-color-error;
+    border: 1px solid;
+    border-radius: $border-radius-small;
+    color: $txt-color-error;
+    padding: 10px;
+  }
+}
+
 .properties-list {
   margin: 0 auto;
   width: 100%;

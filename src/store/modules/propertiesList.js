@@ -70,7 +70,6 @@ const propertiesList = {
       },
     ],
     propertyNotFound: false,
-    filteredProperties: [],
     searchInPropertiesList: [],
   },
   mutations: {
