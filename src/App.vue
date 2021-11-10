@@ -1,16 +1,16 @@
 <template>
   <div class="wrapper">
-    <PropertyListPage />
+    <PropertiesListPage />
   </div>
 </template>
 
 <script>
-import PropertyListPage from './pages/PropertyListPage/PropertyListPage'
+import PropertiesListPage from './pages/PropertiesListPage/PropertiesListPage'
 
 export default {
   name: 'App',
   components: {
-    PropertyListPage,
+    PropertiesListPage,
   },
 }
 </script>

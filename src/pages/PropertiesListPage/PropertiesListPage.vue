@@ -35,4 +35,4 @@ export default {
 //   </template>
 // </FilterForm>
 </script>
-<style lang="scss" src="./_propertyListPage.scss" scoped />
+<style lang="scss" src="./_propertiesListPage.scss" scoped />
