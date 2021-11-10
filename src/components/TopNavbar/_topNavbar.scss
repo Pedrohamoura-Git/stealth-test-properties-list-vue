@@ -12,4 +12,13 @@
 
   // theme switcher
   position: relative;
+
+  &__widgets {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    // flex-direction: column;
+    // align-items: flex-end;
+    // justify-content: ;
+  }
 }

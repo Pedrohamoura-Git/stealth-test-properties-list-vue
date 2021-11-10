@@ -1,12 +1,13 @@
 @import './_themes.scss';
 
-$bg-color-body: var(--bg-color-primary);
+$bg-color-body: var(--bg-color-theme-primary);
 $bg-color-form: var(--bg-color-form);
 $bg-color-error: var(--bg-color-error);
 
+$bg-color-btn-archive: var(--bg-color-btn-archive);
 $bg-color-btn-share: var(--bg-color-btn-share);
 $bg-color-btn-share-hover: var(--bg-color-btn-share-hover);
-$bg-color-btn-archive: var(--bg-color-btn-archive);
+$bg-color-btn-theme-toggle: var(--bg-color-btn-theme-toggle);
 
 $border-color-smooth: var(--border-color-smooth);
 $border-radius-very-small: 3px;

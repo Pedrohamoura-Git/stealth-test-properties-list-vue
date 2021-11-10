@@ -2,14 +2,14 @@
 :root {
   --accent-color: #cacaca;
 
-  --bg-color-primary: #fafafa;
-  --bg-color-secondary: #fafafa;
   --bg-color-error: rgb(234, 15, 15);
   --bg-color-form: rgb(243, 240, 240);
+  --bg-color-theme-primary: #fafafa;
 
-  --bg-color-btn-archive: var(--bg-color-primary);
+  --bg-color-btn-archive: var(--bg-color-theme-primary);
   --bg-color-btn-share: rgb(10, 154, 10);
   --bg-color-btn-share-hover: rgb(3, 106, 3);
+  --bg-color-btn-theme-toggle: #2d2d30;
 
   --border-color-smooth: #d3d3d3;
 
@@ -23,10 +23,18 @@
 :root.dark-theme {
   --accent-color: #3f3f3f;
 
-  --bg-color-primary: #1e1e1e;
-  --bg-color-secondary: #2d2d30;
+  --bg-color-theme-primary: #1e1e1e;
   --bg-color-error: #ab0f4c;
-  --bg-color-form: #338193;
+  --bg-color-form: #4b4b4b;
+  --bg-color-form: rgba(243, 240, 240, 0.118);
 
+  --bg-color-btn-theme-toggle: #fafafa;
+
+  --border-color-smooth: #6a6a6a;
+
+  --txt-color-btn-archive: #ddd;
+  --txt-color-btn-share: #fff;
+
+  --txt-color-error: #fff;
   --txt-primary-color: #ddd;
 }

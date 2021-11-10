@@ -1,12 +1,19 @@
 <template>
-  <input @change="toggleTheme()" id="checkbox" type="checkbox" class="switch-checkbox" />
+  <input
+    @change="toggleTheme()"
+    id="checkbox"
+    type="checkbox"
+    class="switch-checkbox"
+  />
   <label for="checkbox" class="switch-label">
     <div class="icons">
       <span class="icons__moon">🌙</span>
       <span class="icons__sun">☀️</span>
       <span
         class="icons__switch-toggle"
-        :class="{ 'icons__switch-toggle-checked': activeTheme === 'dark-theme' }"
+        :class="{
+          'icons__switch-toggle-checked': activeTheme === 'dark-theme',
+        }"
       ></span>
     </div>
   </label>
