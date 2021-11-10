@@ -33,6 +33,10 @@ body {
   position: relative;
   margin: 0px auto;
   width: 95vw;
+
+  @include tablet {
+    width: 98vw;
+  }
 }
 
 .card-title {

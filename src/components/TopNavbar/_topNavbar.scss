@@ -2,19 +2,14 @@
 
 .top-navbar {
   background-color: $bg-color-form;
+  border: 1px solid $border-color-smooth;
+  border-radius: $border-radius-very-small;
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin: 0 auto 50px;
-  padding: 20px 0 30px;
-  width: 100%;
+  padding: 20px;
 
   // theme switcher
   position: relative;
-
-  @include tablet {
-    gap: 20px;
-    padding: 30px 20px;
-    // height: 100px;
-  }
 }

@@ -11,27 +11,65 @@
 }
 
 .properties-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin: 0 auto;
   width: 100%;
 }
 
 .property {
   border: 1px solid $border-color-smooth;
+  border-radius: $border-radius-very-small;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
   margin-bottom: 21px;
-  width: 100%;
+  padding: 10px;
+  overflow: hidden;
+  width: max-content;
+
+  @include tablet {
+    // align-items: center;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin-bottom: 21px;
+    padding: 0;
+    width: 100%;
+  }
 
   &__img {
-    height: 150px;
-    width: 250px;
-    margin-right: 21px;
+    margin-bottom: 21px;
+    width: 300px;
+
+    @include tablet {
+      height: 150px;
+      width: 250px;
+      margin-bottom: 0;
+      margin-right: 21px;
+    }
   }
 
   &__details {
+    @include tablet {
+      margin-top: 21px;
+    }
+
     &__location {
       margin-bottom: 21px;
       text-align: left;
+
+      @include tablet {
+        margin-bottom: 10px;
+      }
+      &--address,
+      &--city,
+      &--state,
+      &--zip {
+        @include tablet {
+          margin-bottom: 10px;
+        }
+      }
 
       &--address {
         margin-bottom: 10px;
@@ -40,8 +78,29 @@
 
     &__actions {
       display: flex;
-      align-items: center;
+      align-items: left;
+      justify-content: flex-start;
       gap: 10px;
+      margin-bottom: 21px;
+
+      @include desktop {
+        width: max-content;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+    }
+
+    .btn {
+      font-size: 0.7rem;
+      letter-spacing: normal;
+      margin: 0;
+      text-align: center;
+      width: 80px;
+
+      @include tablet {
+        width: 100px;
+      }
     }
   }
 }
