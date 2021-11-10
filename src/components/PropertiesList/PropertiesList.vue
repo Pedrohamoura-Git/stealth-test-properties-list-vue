@@ -56,9 +56,9 @@ export default {
     },
     searchInPropertiesList() {
       let resp = []
-      resp = this.searchForAddress()
+      resp = this.searchInArray(this.propertiesList, 'address', this.searchFor)
       if (resp.length == 0) {
-        resp = this.searchForCity()
+        resp = this.searchInArray(this.propertiesList, 'city', this.searchFor)
       }
       this.UPDATE_SEARCH_IN_PROPERTIES_LIST(resp)
       if (!resp.length) this.UPDATE_PROPERTY_NOT_FOUND(true)
@@ -95,18 +95,9 @@ export default {
       })
       return resp
     },
-    searchForAddress() {
-      return this.propertiesList.filter((property) => {
-        if (
-          property.address.toLowerCase().match(this.searchFor.toLowerCase())
-        ) {
-          return property
-        }
-      })
-    },
-    searchForCity() {
-      return this.propertiesList.filter((property) => {
-        if (property.city.toLowerCase().match(this.searchFor.toLowerCase())) {
+    searchInArray(array, key, searchFor) {
+      return array.filter((property) => {
+        if (property[`${key}`].toLowerCase().match(searchFor.toLowerCase())) {
           return property
         }
       })
