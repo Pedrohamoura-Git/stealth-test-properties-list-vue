@@ -3,17 +3,20 @@
 # Front-end test Project - Stealth-test
 
 <!-- - Live Site URL: - <a href="https://" target="_blank" alt="">Poke Shop</a> -->
+
 - Live Site URL: - <a href="#" target="_blank" alt=""></a>
 
 ## How to run
+
 - In the project folder, you can run:
 
--  ```npm i ```  - **Will install all dependencies needed to run the project.**
+- `npm i ` - **Will install all dependencies needed to run the project.**
 
--  ```npm run serve``` - **Runs the app in the development mode.**
--  Open <a href="http://localhost:3000" target="_blank" alt="">http://localhost:8080</a> to view it in the browser.
+- `npm run serve` - **Runs the app in the development mode.**
+- Open <a href="http://localhost::8080" target="_blank" alt="">http://localhost:8080</a> to view it in the browser.
 
 _The page will reload if you edit it_.
+
 ## Table of contents
 
 - [Overview](#overview)
@@ -34,14 +37,14 @@ Your users should be able to:
 
 - (V) View the optimal layout for each page depending on their device's screen size
 - (V) See hover states for all interactive elements throughout the site
+- (V) Search for properties
 - (V) Toggle dark and light mode
 
 ### Screenshots
 
-  *OBS: THE IMAGES MAY NOT BE IN THE SAME SCALE.*
+_OBS: THE IMAGES MAY NOT BE IN THE SAME SCALE._
 
 # Static Preview
-
 
 <span>
   <img src="/public/screenshots/members-participations-desktop.png" width="640px" style="display: inline">
@@ -49,7 +52,6 @@ Your users should be able to:
 <span>
   <img src="/public/screenshots/members-participations-mobile.png" height="640px" style="display: inline">
 </span>
-
 
 ## My process
 
@@ -63,7 +65,7 @@ Your users should be able to:
 - CSS Animations
 - - CSS Transitions
 - - CSS Transform
-- - CSS Animista library 
+- - CSS Animista library
 - Sass
 - - Sass Variables
 - - Sass Mixins
@@ -77,6 +79,7 @@ Your users should be able to:
 ### Continued development
 
 ...
+
 ## Useful resources
 
 - <a href="https://stackoverflow.com/questions/263965/how-can-i-convert-a-string-to-boolean-in-javascript" alt="String to boolean" target="_blank">String to boolean</a>
@@ -85,6 +88,7 @@ Your users should be able to:
 - <a href="https://animista.net/play/basic" alt="Animista" target="_blank">Animista</a>
 
 ## Author
+
 <em>Pedro Henrique Alves Moura</em>,
 
 - My Portfolio - [portfolio](https://pedro-meuportfolio.netlify.app)
