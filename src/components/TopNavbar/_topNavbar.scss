@@ -5,6 +5,8 @@
   border: 1px solid $border-color-smooth;
   border-radius: $border-radius-very-small;
   display: flex;
+  flex-direction: column;
+  gap: 10px;
   align-items: center;
   justify-content: space-between;
   margin: 0 auto 50px;
@@ -13,9 +15,20 @@
   // theme switcher
   position: relative;
 
+  @include tablet {
+  }
+
   &__widgets {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    @include tablet {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+  }
+
+  &__content {
+    @include tablet {
+    }
   }
 }
